@@ -39,11 +39,21 @@ class User extends Authenticatable
 
     public function posts()
     {
-        return $this->hasMany('App\Post','author_id');
+        return $this->hasMany('App\Post', 'author_id');
     }
 
     public function comments()
     {
-        return $this->hasMany('App\Comment','author_id');
+        return $this->hasMany('App\Comment', 'author_id');
+    }
+
+
+    public function is_admin()
+    {
+        $role = $this->role_id;
+        if ($role == config('constants.ADMIN')) {
+            return true;
+        }
+        return false;
     }
 }
