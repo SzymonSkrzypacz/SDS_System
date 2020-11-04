@@ -17,8 +17,13 @@ class Post extends Model
         'title', 'body', 'author_id'
     ];
 
+    public function comments()
+    {
+      return $this->hasMany('App\Comment', 'post_id');
+    }
+
     public function author()
     {
-        return $this->belongsTo('App\User', 'id');
+        return $this->belongsTo('App\User', 'author_id');
     }
 }
