@@ -20,7 +20,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/blog', 'PostController@index');
-Route::get('/blog/createPost', 'PostController@create');
-Route::post('/blog/createPost', 'PostController@store');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/blog/createPost', 'PostController@create');
+    Route::post('/blog/createPost', 'PostController@store');
+});

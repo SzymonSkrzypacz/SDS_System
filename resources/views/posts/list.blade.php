@@ -2,6 +2,7 @@
 @section('title')
 {{$title}}
 @endsection
+@include('flash-message')
 @section('content')
 @if ( !$posts->count() )
 There is no post till now. Login and write a new post now!!!

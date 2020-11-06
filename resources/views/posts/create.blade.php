@@ -8,6 +8,8 @@ Add New Post
 
 @section('content')
 
+@include('flash-message')
+
 <form action="/blog/createPost" method="post">
 
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -25,7 +27,6 @@ Add New Post
 </div>
 
 <input type="submit" name='publish' class="btn btn-success" value = "Publish"/>
-
 
 </form>
 
