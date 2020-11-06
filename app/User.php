@@ -56,4 +56,12 @@ class User extends Authenticatable
         }
         return false;
     }
+    public function is_privileged_user()
+    {
+        $role = $this->role_id;
+        if ($role == config('constants.PRIVILEGED_USER')) {
+            return true;
+        }
+        return false;
+    }
 }
