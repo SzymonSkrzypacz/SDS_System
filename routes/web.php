@@ -23,8 +23,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/blog', 'PostController@index');
+Route::get('/blog/{slug}', ['as' => 'post', 'uses' => 'PostController@show'])->where('slug', '[A-Za-z0-9-_]+');
+
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/blog/createPost', 'PostController@create');
     Route::post('/blog/createPost', 'PostController@store');
+    Route::get('/blog/editPost/{slug}', 'PostController@edit');
+    Route::post('/blog/updatePost', 'PostController@update');
+    Route::get('/blog/deletePost/{id}', 'PostController@destroy');
 });
