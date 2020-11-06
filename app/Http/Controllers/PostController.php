@@ -89,7 +89,7 @@ class PostController extends Controller
             $post->body = $request->input('body');
             $post->save();
 
-            return redirect('/blog' . '/' . $post->slug)->with('success', 'Post has been updated successfully.');
+            return redirect('/blog/post' . '/' . $post->slug)->with('success', 'Post has been updated successfully.');
         }
     }
 

@@ -23,7 +23,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/blog', 'PostController@index');
-Route::get('/blog/{slug}', ['as' => 'post', 'uses' => 'PostController@show'])->where('slug', '[A-Za-z0-9-_]+');
+
 
 
 Route::middleware(['auth'])->group(function () {
@@ -37,3 +37,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/blog/editComment/{id}', 'CommentController@edit');
     Route::post('/blog/updateComment', 'CommentController@update');
 });
+
+
+Route::get('/blog/post/{slug}', ['as' => 'post', 'uses' => 'PostController@show'])->where('slug', '[A-Za-z0-9-_]+');

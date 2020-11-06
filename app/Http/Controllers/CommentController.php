@@ -16,7 +16,7 @@ class CommentController extends Controller
         $input['body'] = $request->input('body');
         $slug = $request->input('slug');
         Comment::create($input);
-        return redirect('/blog' . '/' . $slug)->with('success', 'Comment published');
+        return redirect('/blog/post' . '/' . $slug)->with('success', 'Comment published');
     }
 
 
@@ -52,7 +52,7 @@ class CommentController extends Controller
             $comment->body = $request->input('body');
             $comment->save();
             $post = Post::find($comment->post_id);
-            return redirect('/blog' . '/' . $post->slug)->with('success', 'Comment has been updated successfully.');
+            return redirect('/blog/post' . '/' . $post->slug)->with('success', 'Comment has been updated successfully.');
         }
     }
 }
