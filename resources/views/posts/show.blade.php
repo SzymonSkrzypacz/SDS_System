@@ -19,23 +19,6 @@
   <br/>
   <br/>
 
-  @if(Auth::guest())
-    <p>Login to Comment</p>
-  @else
-    <div class="panel-body">
-      <form method="post" action="/blog/addComment">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="post_id" value="{{ $post->id }}">
-        <input type="hidden" name="slug" value="{{ $post->slug }}">
-        <div class="form-group">
-            <h2>Leave a comment</h2>
-            <textarea required="required" placeholder="Enter comment here" name = "body" class="form-control"></textarea>
-          </div>
-          <input type="submit" name='post_comment' class="btn btn-success" value = "Post"/>
-      </div>
-      </form>
-    </div>
-  <div>
 
     @if($comments)
     <ul style="list-style: none; padding: 0">
@@ -59,6 +42,26 @@
       @endforeach
     </ul>
     @endif
+
+
+    @if(Auth::guest())
+    <p>Login to Comment</p>
+  @else
+    <div class="panel-body">
+      <form method="post" action="/blog/addComment">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="post_id" value="{{ $post->id }}">
+        <input type="hidden" name="slug" value="{{ $post->slug }}">
+        <div class="form-group">
+            <h2>Leave a comment</h2>
+            <textarea required="required" placeholder="Enter comment here" name = "body" class="form-control"></textarea>
+          </div>
+          <input type="submit" name='post_comment' class="btn btn-success" value = "Post"/>
+      </div>
+      </form>
+    </div>
+  <div>
+
 
 
 @endif
