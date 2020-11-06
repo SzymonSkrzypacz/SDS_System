@@ -23,11 +23,16 @@
     <p>Login to Comment</p>
   @else
     <div class="panel-body">
-      <form method="post" action="/blog/comment/add">
+      <form method="post" action="/blog/addComment">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="post_id" value="{{ $post->id }}">
         <input type="hidden" name="slug" value="{{ $post->slug }}">
-
+        <div class="form-group">
+            <h2>Leave a comment</h2>
+            <textarea required="required" placeholder="Enter comment here" name = "body" class="form-control"></textarea>
+          </div>
+          <input type="submit" name='post_comment' class="btn btn-success" value = "Post"/>
+      </div>
       </form>
     </div>
   <div>
@@ -43,6 +48,11 @@
             </div>
             <div class="list-group-item">
               <p>{{ $comment->body }}</p>
+
+              @if(!Auth::guest() && ($comment->user_id == Auth::user()->id || Auth::user()->is_admin()))
+      <button class="btn" style="float: right"><a href="{{ url('/blog/editComment/'.$comment->id)}}">Edit comment</a></button>
+      <a href="{{  url('/blog/deleteComment/'.$comment->id) }}" class="btn btn-danger">Delete comment</a>
+    @endif
             </div>
           </div>
         </li>
@@ -50,11 +60,6 @@
     </ul>
     @endif
 
-    <div class="form-group">
-        <h2>Leave a comment</h2>
-        <textarea required="required" placeholder="Enter comment here" name = "body" class="form-control"></textarea>
-      </div>
-      <input type="submit" name='post_comment' class="btn btn-success" value = "Post"/>
-  </div>
+
 @endif
 @endsection

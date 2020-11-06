@@ -8,7 +8,7 @@ Add New Post
 
 @section('content')
 
-@include('flash-message')
+
 
 <form action="/blog/createPost" method="post">
 
