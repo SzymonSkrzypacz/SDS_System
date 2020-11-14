@@ -11,6 +11,7 @@
         <th scope="col">Email</th>
         <th scope="col">Role</th>
         <th scope="col">isBlocked</th>
+        <th scope="col">Activity</th>
     </tr>
     </thead>
     <tbody>
@@ -49,8 +50,14 @@
         <td>Admin</td>
     @endcannot
         <td>{{ $user->isBlocked }}</td>
-    </tr>
 
+        <td>
+            @can('delete', $user)
+                    <a href="{{  url('/panel/users/delete/'.$user->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+            @endcan
+        </td>
+
+    </tr>
     @endforeach
     </tbody>
 </table>

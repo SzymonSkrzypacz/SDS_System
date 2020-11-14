@@ -17,4 +17,13 @@ class RolePolicy
         else
             return true;
     }
+
+
+    public function delete(User $user)
+    {
+        if ($user->role_id == config('constants.ADMIN'))
+            return true;
+        else
+            return false;
+    }
 }

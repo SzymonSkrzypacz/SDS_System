@@ -27,4 +27,10 @@ class UserController extends Controller
         return redirect ('/panel/users')->with('success','User role has been updated successfully');
     }
 
+    public function deleteUser($id){
+        $user=User::find($id);
+        $user->delete();
+        return redirect('/panel/users')->with('success','User has been deleted successfully');
+    }
+
 }
