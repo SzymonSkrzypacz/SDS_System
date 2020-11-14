@@ -37,6 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected $dates =
+    [
+        'banned_until',
+    ];
+
     public function posts()
     {
         return $this->hasMany('App\Post', 'author_id');

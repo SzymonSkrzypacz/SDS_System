@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Role;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -20,10 +21,15 @@ class UserController extends Controller
 
     public function updateUserRole(Request $request)
     {
-        $input = $request->only('role_id');
+        $user = User::where('id', $request->UID)->first();
+        $user->role_id = $request->role_id;
+        if ($user->role_id == config('constants.BANNED_USER')) {
+            $user->banned_until = Carbon::now()->addDays(14);
+        } else {
+            $user->banned_until = null;
+        }
 
-        $UID = $request->only('UID');
-        User::where('id', $UID['UID'])->update($input);
+        $user->save();
 
         return redirect('/panel/users')->with('success', 'User role has been updated successfully');
     }
