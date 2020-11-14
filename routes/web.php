@@ -41,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::group(['middleware'=>'admin'],function() {
 Route::get('/panel/users', 'UserController@showUserList');
+Route::patch('/panel/users/role', 'UserController@updateUserRole');
 });
 
 

@@ -17,6 +17,14 @@ class UserController extends Controller
         return view('adminPanel.usersList', compact('usersList', 'roles'));
     }
 
+    public function updateUserRole(Request $request){
+        $input = $request->only('role_id');
 
+        $UID = $request->only('UID');
+        User::where('id', $UID['UID'])
+            ->update($input);
+
+        return redirect ('/panel/users')->with('success','User role has been updated successfully');
+    }
 
 }
