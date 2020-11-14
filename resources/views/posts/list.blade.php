@@ -2,7 +2,11 @@
 
 @section('content')
 
-<button class="btn"><a href="{{ url('/blog/createPost')}}">Add post</a></button>
+
+    @if(Auth::user()->is_admin() || Auth::user()->is_privileged_user())
+        <button class="btn"><a href="{{ url('/blog/createPost')}}">Add post</a></button>
+        @endif
+
 
 @if ( !$posts->count() )
 There is no post till now. Login and write a new post now!!!

@@ -36,6 +36,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/blog/deleteComment/{id}', 'CommentController@destroy');
     Route::get('/blog/editComment/{id}', 'CommentController@edit');
     Route::post('/blog/updateComment', 'CommentController@update');
+
+});
+
+Route::group(['middleware'=>'admin'],function() {
+Route::get('/panel/users', 'UserController@showUserList');
 });
 
 
