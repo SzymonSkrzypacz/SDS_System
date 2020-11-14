@@ -31,9 +31,13 @@ class RolesSeeder extends Seeder
                     'id' => 3,
                     'description' => 'privilegedUser',
                 ],
+                [
+                    'id' => 4,
+                    'description' => 'bannedUser',
+                ],
 
             ];
-        foreach($data as $row) {
+        foreach ($data as $row) {
             $model = Role::firstOrNew(["id" => $row["id"]]);
             $model->fill($row);
             $model->save();

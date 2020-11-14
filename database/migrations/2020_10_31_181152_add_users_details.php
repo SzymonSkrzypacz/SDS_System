@@ -17,7 +17,7 @@ class AddUsersDetails extends Migration
             $table->integer('role_id')->unsigned()->default(2);
             $table->foreign('role_id')
                 ->references('id')->on('roles');
-            $table->boolean('isBlocked')->default(false);
+                $table->timestamp('banned_until')->nullable();
         });
     }
 

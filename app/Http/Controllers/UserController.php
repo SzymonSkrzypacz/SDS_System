@@ -10,27 +10,28 @@ class UserController extends Controller
 {
 
 
-    public function showUserList(){
+    public function showUserList()
+    {
 
-        $usersList= User::all();
+        $usersList = User::all();
         $roles = Role::all();
         return view('adminPanel.usersList', compact('usersList', 'roles'));
     }
 
-    public function updateUserRole(Request $request){
+    public function updateUserRole(Request $request)
+    {
         $input = $request->only('role_id');
 
         $UID = $request->only('UID');
-        User::where('id', $UID['UID'])
-            ->update($input);
+        User::where('id', $UID['UID'])->update($input);
 
-        return redirect ('/panel/users')->with('success','User role has been updated successfully');
+        return redirect('/panel/users')->with('success', 'User role has been updated successfully');
     }
 
-    public function deleteUser($id){
-        $user=User::find($id);
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
         $user->delete();
-        return redirect('/panel/users')->with('success','User has been deleted successfully');
+        return redirect('/panel/users')->with('success', 'User has been deleted successfully');
     }
-
 }

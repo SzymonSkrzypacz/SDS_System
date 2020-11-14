@@ -10,8 +10,7 @@
         <th scope="col">Username</th>
         <th scope="col">Email</th>
         <th scope="col">Role</th>
-        <th scope="col">isBlocked</th>
-        <th scope="col">Activity</th>
+        <th scope="col">Delete user</th>
     </tr>
     </thead>
     <tbody>
@@ -49,11 +48,9 @@
     @cannot('update', $user)
         <td>Admin</td>
     @endcannot
-        <td>{{ $user->isBlocked }}</td>
-
         <td>
             @can('delete', $user)
-                    <a href="{{  url('/panel/users/delete/'.$user->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
+                    <a href="{{  url('/panel/users/delete/'.$user->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> </a>
             @endcan
         </td>
 
