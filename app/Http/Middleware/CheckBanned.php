@@ -26,7 +26,7 @@ class CheckBanned
             if ($banned_days > 14) {
                 $message = 'Your account has been suspended. Please contact administrator at admin@example.com';
             } else {
-                $message = 'Your account has been suspended for ' . $banned_days . ' ' . Str::plural('day', $banned_days) . '. Please contact administrator.';
+                $message = 'Your account has been suspended for ' . $banned_days . ' ' . Str::plural('day', $banned_days) . '. Please contact administrator admin@example.com.';
             }
 
             return redirect()->route('login')->with('error', $message);

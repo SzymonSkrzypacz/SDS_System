@@ -4,13 +4,16 @@
 @if($post)
   <h1>{!! $post->title !!}</h1>
   <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} by <b>{{ $post->author->username }}</b></p>
-    @if(!Auth::guest() && ($post->author_id == Auth::user()->id || Auth::user()->is_admin()))
+    @can('update',$post)
       <button class="btn" style="float: right"><a href="{{ url('/blog/editPost/'.$post->slug)}}">Edit Post</a></button>
+      @endcan
       <div>
         {!! $post->body !!}
       </div>
+
+      @can('delete',$post)
       <a href="{{  url('/blog/deletePost/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger">Delete</a>
-    @endif
+    @endcan
   @else
     Page does not exist
   @endif
@@ -32,10 +35,12 @@
             <div class="list-group-item">
               <p>{{ $comment->body }}</p>
 
-              @if(!Auth::guest() && ($comment->user_id == Auth::user()->id || Auth::user()->is_admin()))
+              @can('update',$comment)
       <button class="btn" style="float: right"><a href="{{ url('/blog/editComment/'.$comment->id)}}">Edit comment</a></button>
+      @endcan
+      @can('delete',$comment)
       <a href="{{  url('/blog/deleteComment/'.$comment->id) }}" class="btn btn-danger">Delete comment</a>
-    @endif
+    @endcan
             </div>
           </div>
         </li>
@@ -44,9 +49,7 @@
     @endif
 
 
-    @if(Auth::guest())
-    <p>Login to Comment</p>
-  @else
+    @if(Auth::check())
     <div class="panel-body">
       <form method="post" action="/blog/addComment">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -60,6 +63,9 @@
       </div>
       </form>
     </div>
+    @else
+    <p><a href="{{url('/login')}}">Login </a> or <a href="{{url('/register')}}">register</a> to comment this post</p>
+
   <div>
 
 @endif
