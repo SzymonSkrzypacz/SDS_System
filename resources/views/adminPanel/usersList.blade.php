@@ -17,7 +17,7 @@
     @foreach($usersList as $user)
 
     <tr>
-        <th scope="row">{{ $user->id }}</th>
+        <th scope="row">{{ $orderNumber++ }}</th>
         <td>{{ $user->username }}</td>
         <td>{{ $user->email }}</td>
         @can('update',$user)

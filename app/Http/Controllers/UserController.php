@@ -16,7 +16,8 @@ class UserController extends Controller
 
         $usersList = User::all();
         $roles = Role::all();
-        return view('adminPanel.usersList', compact('usersList', 'roles'));
+        $orderNumber=1;
+        return view('adminPanel.usersList', compact('usersList', 'roles','orderNumber'));
     }
 
     public function updateUserRole(Request $request)
