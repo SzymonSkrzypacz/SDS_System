@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Informacja') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,9 +14,14 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Jesteś zalogowany!') }}
                 </div>
             </div>
+
+            <a class="btn btn-success" href="{{ url('/blog')}}">Blog</a>
+           <a class="btn btn-secondary" href="{{ url('/panel/users')}}">Zarządzaj użytkownikami</a>
+            <a class="btn btn-secondary"href="{{ url('/panel/services')}}">Zarządzaj usługami </a>
+
         </div>
     </div>
 </div>
