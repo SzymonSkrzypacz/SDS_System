@@ -43,6 +43,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/panel/services', 'ServiceController@showServiceList');
     Route::get('/panel/services/createService', 'ServiceController@create');
     Route::post('/panel/services/createService', 'ServiceController@store');
+    Route::get('/panel/services/edit/{id}', 'ServiceController@edit');
+    Route::post('/panel/services/edit', 'ServiceController@update');
     Route::get('/panel/users/delete/{id}', 'UserController@deleteUser')->name('deleteUser');
     Route::get('/panel/services/delete/{id}', 'ServiceController@deleteService')->name('deleteService');
     Route::patch('/panel/users/role', 'UserController@updateUserRole');

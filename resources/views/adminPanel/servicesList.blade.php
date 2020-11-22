@@ -23,6 +23,10 @@
             @can('delete', $service)
                     <a href="{{  url('/panel/services/delete/'.$service->id) }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> </a>
             @endcan
+            @can('edit', $service)
+            <a href="{{  url('/panel/services/edit/'.$service->id) }}" class="btn btn-info"><i class="fas fa-edit"></i> </a>
+    @endcan
+
         </td>
     </tr>
     @endforeach

@@ -44,6 +44,38 @@ class ServiceController extends Controller
     }
 
 
+    public function edit(Request $request, $id)
+    {
+        $service = Service::where('id', $id)->first();
+        if ($service &&  $request->user()->is_admin())
+            return view('adminPanel.editService')->with('service', $service);
+        return redirect('/')->with('error', 'you have not sufficient permissions');
+    }
+
+
+
+    public function update(Request $request)
+    {
+
+        $service_id = $request->input('service_id');
+        $service = Service::find($service_id);
+        if ($service && $request->user()->is_admin()) {
+            $name = $request->input('name');
+            $duplicate = Service::where('name', $service->name)->first();
+            if ($duplicate) {
+                if ($duplicate->id != $service_id) {
+                    return redirect('panel/services/edit')->with('error', 'Service already exists.');
+                } else {
+                    $service->name = $name;
+                }
+            }
+        }
+
+        $service->save();
+
+        return redirect('/panel/services')->with('success', 'Service has been updated successfully.');
+    }
+
 
     public function deleteService($id)
     {
