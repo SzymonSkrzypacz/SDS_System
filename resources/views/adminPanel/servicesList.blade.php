@@ -3,6 +3,8 @@
 @section('content')
     <div class="container">
         <h2>Lista usług</h2>
+
+        <button class="btn btn-success"><a href="{{ url('/panel/services/createService')}}">Dodaj usługę</a></button>
 <table class="table">
     <thead>
     <tr>
