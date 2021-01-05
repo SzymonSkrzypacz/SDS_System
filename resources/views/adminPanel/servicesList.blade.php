@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container ">
         <h2>Lista usług</h2>
 
-        <button class="btn btn-success"><a href="{{ url('/panel/services/createService')}}">Dodaj usługę</a></button>
+        <button class="btn btn-outline-success"><a class="text-dark text-decoration-none" href="{{ url('/panel/services/createService')}}"><strong>Dodaj usługę</strong></a></button>
 <table class="table">
     <thead>
     <tr>

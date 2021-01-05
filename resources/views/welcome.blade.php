@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>SDS System</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -64,9 +64,10 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref full-height d-flex">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right links ">
+                    <a href="{{ url('/home') }}">Home</a>    <a href="{{ url('/home') }}">Home</a>    <a href="{{ url('/home') }}">Home</a>    <a href="{{ url('/home') }}">Home</a>    <a href="{{ url('/home') }}">Home</a>    <a href="{{ url('/home') }}">Home</a>    <a href="{{ url('/home') }}">Home</a>
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
@@ -79,7 +80,7 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="content container badge-dark">
                 <div class="title m-b-md">
                    SDS System - strona główna
                 </div>
