@@ -1,0 +1,6 @@
+@section('offerContent')
+
+
+@endsection
+
+
