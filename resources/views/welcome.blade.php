@@ -26,7 +26,7 @@
     @include("mainPage.about")
     @include("mainPage.offer")
     @include("mainPage.gallery")
-    @include("contactPage.gallery")
+    @include("mainPage.contact")
 
 
 </head>
