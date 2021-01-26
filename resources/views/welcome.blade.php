@@ -27,6 +27,7 @@
     @include("mainPage.offer")
     @include("mainPage.gallery")
     @include("mainPage.contact")
+    @include("mainPage.contactForm")
 
 
 </head>
@@ -37,6 +38,7 @@
 @yield("offerContent")
 @yield("galleryContent")
 @yield("contactContent")
+@yield("contactFormContent")
 
 </body>
 </html>

@@ -31,7 +31,7 @@
                                    }}">Galeria</a></li>
                     <li class="nav-item myeditedcnav"><a class="nav-link mx-3 text-white" href="{{ url
                                    ('/home')
-                                   }}">Dane firmy</a></li>
+                                   }}">Dane kontaktowe</a></li>
                     <li class="nav-item myeditedcnav"><a class="nav-link mx-3 text-white" href="{{ url
                                    ('/home')
                                    }}">Kontakt</a></li>

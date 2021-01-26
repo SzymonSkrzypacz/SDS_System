@@ -93,5 +93,37 @@ img.zoom {
     margin-top: 5vh;
     margin-bottom: 8vh;
 }
+.contacFormtTitle{
+    margin-top: 5vh;
+    margin-bottom: 8vh;
+}
 
 
+footer {
+    height: 15vh;
+    background-image: url(../assets/logofooter.png);
+    background-color: #555;
+    background-repeat: repeat;
+    background-position: center;
+    background-size: contain;
+
+}
+
+footer div{
+    background-color: black;
+    opacity: 0.75;
+}
+
+footer p {
+    line-height: 15vh;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffc40e;
+    font-weight: bold;
+}
+
+
+.lastdiv{
+ padding-top: 5vh;
+    margin-top: 5vh;
+}
