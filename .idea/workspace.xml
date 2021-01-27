@@ -19,14 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7e97fc2-7a67-442b-a224-7f9e5c7aaee2" name="Default Changelist" comment="styles for form section">
+    <list default="true" id="b7e97fc2-7a67-442b-a224-7f9e5c7aaee2" name="Default Changelist" comment="link for nav">
+      <change afterPath="$PROJECT_DIR$/public/assets/logonav.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mainPage/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainPage/about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mainPage/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainPage/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mainPage/contactForm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainPage/contactForm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mainPage/gallery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainPage/gallery.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/adminPanel/usersList.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/adminPanel/usersList.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/comments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/comments/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mainPage/nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainPage/nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mainPage/offer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainPage/offer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/posts/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/posts/show.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +191,7 @@
       <workItem from="1609771661203" duration="779000" />
       <workItem from="1611590601178" duration="16647000" />
       <workItem from="1611673068375" duration="18970000" />
-      <workItem from="1611775973278" duration="1219000" />
+      <workItem from="1611775973278" duration="4778000" />
     </task>
     <task id="LOCAL-00001" summary="styles for navigation">
       <created>1611602352950</created>
@@ -222,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611692419916</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="link for nav">
+      <created>1611777306758</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611777306758</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +259,8 @@
     <MESSAGE value="styles for gallery section and offer" />
     <MESSAGE value="styles for contact section" />
     <MESSAGE value="styles for form section" />
-    <option name="LAST_COMMIT_MESSAGE" value="styles for form section" />
+    <MESSAGE value="link for nav" />
+    <option name="LAST_COMMIT_MESSAGE" value="link for nav" />
   </component>
   <component name="WindowStateProjectService">
     <state x="570" y="259" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1611677177616">
@@ -257,13 +271,17 @@
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
     <state x="341" y="149" key="SettingsEditor/0.0.1680.1010/1680.238.1600.860@0.0.1680.1010" timestamp="1611591268594" />
-    <state x="432" y="237" key="Vcs.Push.Dialog.v2" timestamp="1611692422645">
+    <state x="432" y="237" key="Vcs.Push.Dialog.v2" timestamp="1611777310339">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010/1680.238.1600.860@0.0.1680.1010" timestamp="1611692422644" />
-    <state x="496" y="233" key="run.anything.popup" timestamp="1611680227213">
+    <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010/1680.238.1600.860@0.0.1680.1010" timestamp="1611777310339" />
+    <state x="547" y="238" width="944" height="747" key="find.popup" timestamp="1611780340255">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state x="496" y="233" key="run.anything.popup/0.0.1680.1010/1680.238.1600.860@0.0.1680.1010" timestamp="1611680227213" />
+    <state x="547" y="238" width="944" height="747" key="find.popup/0.0.1680.1010/1680.238.1600.860@0.0.1680.1010" timestamp="1611780340255" />
+    <state x="496" y="233" key="run.anything.popup" timestamp="1611777671024">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="496" y="233" key="run.anything.popup/0.0.1680.1010/1680.238.1600.860@0.0.1680.1010" timestamp="1611777671024" />
   </component>
 </project>

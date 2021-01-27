@@ -7,10 +7,10 @@
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">Username</th>
-        <th scope="col">Email</th>
-        <th scope="col">Role</th>
-        <th scope="col">Delete user</th>
+        <th scope="col">Pseudonim</th>
+        <th scope="col">Adres e-mail</th>
+        <th scope="col">Rola</th>
+        <th scope="col">Usuń użytkownika</th>
     </tr>
     </thead>
     <tbody>
@@ -40,7 +40,7 @@
                         <span class="help-block">{{ $errors->first('role_id') }}</span>
                     @endif
                     <input type="hidden" name="UID" value="{{$user->id}}"/>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Zapisz</button>
                 </div>
             </form>
         </td>

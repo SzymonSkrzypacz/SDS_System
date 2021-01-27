@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h1>Edit Comment</h1>
+<h1>Edytuj komentarz</h1>
 
 <form method="post" action='{{ url("/blog/updateComment") }}'>
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -17,7 +17,7 @@
     </textarea>
   </div>
 
-  <input type="submit" name='publish' class="btn btn-success" value = "Publish"/>
+  <input type="submit" name='publish' class="btn btn-success" value = "Edytuj"/>
 
 </form>
 @endsection

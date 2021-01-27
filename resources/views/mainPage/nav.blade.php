@@ -29,7 +29,8 @@
                     <li class="nav-item myeditedcnav"><a class="nav-link mx-3 text-white" href="{{ url('/blog')
                     }}">Blog</a></li>
                     @auth
-                        <li class="nav-item"><a class="nav-link text-white"  href="{{ url('/home')}}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white"  href="{{ url('/home')}}">Strona
+                                główna</a></li>
                     @else
 
                         <li class="nav-item"><a class="nav-link btn btn-outline-warning text-warning" href="{{ route('login')}}">Zaloguj</a></li>

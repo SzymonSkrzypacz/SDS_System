@@ -4,12 +4,14 @@
 
 
 @can('create', App\Post::class)
-        <button class="btn"><a href="{{ url('/blog/createPost')}}">Add post</a></button>
+        <a href="{{ url('/blog/createPost')
+        }}" class="btn btn-info btn-lg active" role="button" aria-pressed="true">Dodaj post</a>
         @endcan
 
 
 @if ( !$posts->count() )
-There is no post till now. Login and write a new post now!!!
+    Nie ma jeszcze żadnych postów. Zaloguj się aby dodać nowe posty.
+
 @else
 <div class="">
   @foreach( $posts as $post )
@@ -17,11 +19,12 @@ There is no post till now. Login and write a new post now!!!
     <div class="list-group-item">
       <h3><a href="{{ url('/blog/post'.'/'.$post->slug) }}">{{ $post->title }}</a>
       </h3>
-      <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} by <b> {{ $post->author->username }}</b></p>
+      <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} autor: <b> {{ $post->author->username }}</b></p>
     </div>
     <div class="list-group-item">
       <article>
-        {!! Str::limit($post->body, $limit = 100, $end = '....... <a href='.url("/blog".'/'.'post'.'/'.$post->slug).'>Read More</a>') !!}
+        {!! Str::limit($post->body, $limit = 100, $end = '....... <a href='.url("/blog".'/'.'post'.'/'.$post->slug)
+        .'>Zobacz więcej...</a>') !!}
       </article>
     </div>
   </div>

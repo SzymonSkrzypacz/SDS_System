@@ -3,19 +3,21 @@
 @section('content')
 @if($post)
   <h1>{!! $post->title !!}</h1>
-  <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} by <b>{{ $post->author->username }}</b></p>
-    @can('update',$post)
-      <button class="btn" style="float: right"><a href="{{ url('/blog/editPost/'.$post->slug)}}">Edit Post</a></button>
-      @endcan
+  <p>{{ $post->created_at->format('M d,Y \a\t h:i a') }} autor: <b>{{ $post->author->username }}</b></p>
+
       <div>
         {!! $post->body !!}
       </div>
 
       @can('delete',$post)
-      <a href="{{  url('/blog/deletePost/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger">Delete</a>
+      <a href="{{  url('/blog/deletePost/'.$post->id.'?_token='.csrf_token()) }}" class="btn btn-danger mt-5">Usuń
+          post</a>
     @endcan
+  @can('update',$post)
+      <a class="btn btn-info mt-5 text-white" href="{{ url('/blog/editPost/'.$post->slug)}}">Edytuj post</a>
+  @endcan
   @else
-    Page does not exist
+  Strona nie istnieje,
   @endif
 
 
@@ -36,10 +38,10 @@
               <p>{{ $comment->body }}</p>
 
               @can('update',$comment)
-      <button class="btn" style="float: right"><a href="{{ url('/blog/editComment/'.$comment->id)}}">Edit comment</a></button>
+     <a class="btn btn-primary" href="{{ url('/blog/editComment/'.$comment->id)}}">Edytuj komentarz</a>
       @endcan
       @can('delete',$comment)
-      <a href="{{  url('/blog/deleteComment/'.$comment->id) }}" class="btn btn-danger">Delete comment</a>
+      <a href="{{  url('/blog/deleteComment/'.$comment->id) }}" class="btn btn-danger">Usuń komentarz</a>
     @endcan
             </div>
           </div>
@@ -56,15 +58,17 @@
         <input type="hidden" name="post_id" value="{{ $post->id }}">
         <input type="hidden" name="slug" value="{{ $post->slug }}">
         <div class="form-group">
-            <h2>Leave a comment</h2>
-            <textarea required="required" placeholder="Enter comment here" name = "body" class="form-control"></textarea>
+            <h2 class="py-3">Zostaw komentarz</h2>
+            <textarea required="required" placeholder="Zostaw komentarz tutaj" name = "body"
+                      class="form-control"></textarea>
           </div>
-          <input type="submit" name='post_comment' class="btn btn-success" value = "Post"/>
-      </div>
+          <input type="submit" name='post_comment' class="btn btn-success" value = "Opublikuj"/>
+
       </form>
     </div>
     @else
-    <p><a href="{{url('/login')}}">Login </a> or <a href="{{url('/register')}}">register</a> to comment this post</p>
+    <p><a href="{{url('/login')}}">Zaloguj</a> lub <a href="{{url('/register')}}">Zarejestruj się</a> aby móc
+        komentować ten post.</p>
 
   <div>
 

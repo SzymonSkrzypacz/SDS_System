@@ -18,7 +18,7 @@ Edit Post
     </textarea>
   </div>
 
-  <input type="submit" name='publish' class="btn btn-success" value = "Publish"/>
+  <input type="submit" name='publish' class="btn btn-success" value = "Opublikuj"/>
 
 </form>
 @endsection
