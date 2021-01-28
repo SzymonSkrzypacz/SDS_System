@@ -16,7 +16,7 @@ class CommentController extends Controller
         $input['body'] = $request->input('body');
         $slug = $request->input('slug');
         Comment::create($input);
-        return redirect('/blog/post' . '/' . $slug)->with('success', 'Comment published');
+        return redirect('/blog/post' . '/' . $slug)->with('success', 'Opublikowano komentarz');
     }
 
 
@@ -26,9 +26,9 @@ class CommentController extends Controller
         $comment = Comment::find($id);
         if ($comment && ($comment->user_id == $request->user()->id || $request->user()->is_admin())) {
             $comment->delete();
-            return redirect('blog/')->with('success', 'Comment has been deleted successfully');
+            return redirect('blog/')->with('success', 'Komentarz został usunięty.');
         } else {
-            return redirect('blog/')->with('error', 'Invalid operation. You have not sufficient permissions.');
+            return redirect('blog/')->with('error', 'Nieprawidłowa operacja. Nie posiadasz wymaganych uprawnień.');
         }
     }
 
@@ -38,7 +38,7 @@ class CommentController extends Controller
         $comment = Comment::find($id);
         if ($comment && ($request->user()->id == $comment->user_id))
             return view('comments.edit')->with('comment', $comment);
-        return redirect('blog/')->with('error', 'you have not sufficient permissions');
+        return redirect('blog/')->with('error', 'Nieprawidłowa operacja. Nie posiadasz wymaganych uprawnień.');
     }
 
 
@@ -52,7 +52,7 @@ class CommentController extends Controller
             $comment->body = $request->input('body');
             $comment->save();
             $post = Post::find($comment->post_id);
-            return redirect('/blog/post' . '/' . $post->slug)->with('success', 'Comment has been updated successfully.');
+            return redirect('/blog/post' . '/' . $post->slug)->with('success', 'Edycja komentarza przebiegła prawidłowo.');
         }
     }
 }

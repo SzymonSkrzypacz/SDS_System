@@ -24,7 +24,7 @@ class ServiceController extends Controller
         if ($request->user()->is_admin() || $request->user()->is_privileged_user()) {
             return view('adminPanel.createService');
         } else {
-            return redirect('/')->with('error', 'You have not sufficient permissions for this');
+            return redirect('/')->with('error', 'Nieprawidłowa operacja. Nie posiadasz wymaganych uprawnień.');
         }
     }
 
@@ -35,12 +35,12 @@ class ServiceController extends Controller
         $service->name = $request->get('name');
         $duplicate = Service::where('name', $service->name)->first();
         if ($duplicate) {
-            return redirect('panel/services/createService')->with('error', 'Service already exists.');
+            return redirect('panel/services/createService')->with('error', 'Taka nazwa usługi już istnieje');
         }
 
         $service->save();
 
-        return redirect('/panel/services')->with('success', 'Service has been added successfully.');
+        return redirect('/panel/services')->with('success', 'Usługa została dodana prawidłowo.');
     }
 
 
@@ -49,7 +49,7 @@ class ServiceController extends Controller
         $service = Service::where('id', $id)->first();
         if ($service &&  $request->user()->is_admin())
             return view('adminPanel.editService')->with('service', $service);
-        return redirect('/')->with('error', 'you have not sufficient permissions');
+        return redirect('/')->with('error', 'Nieprawidłowa operacja. Nie posiadasz wymaganych uprawnień.');
     }
 
 
@@ -64,7 +64,7 @@ class ServiceController extends Controller
             $duplicate = Service::where('name', $service->name)->first();
             if ($duplicate) {
                 if ($duplicate->id != $service_id) {
-                    return redirect('panel/services/edit')->with('error', 'Service already exists.');
+                    return redirect('panel/services/edit')->with('error', 'Taka usługa już istnieje.');
                 } else {
                     $service->name = $name;
                 }
@@ -73,7 +73,7 @@ class ServiceController extends Controller
 
         $service->save();
 
-        return redirect('/panel/services')->with('success', 'Service has been updated successfully.');
+        return redirect('/panel/services')->with('success', 'Usługa została edytowana prawidłowo.');
     }
 
 
@@ -81,6 +81,6 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         $service->delete();
-        return redirect('/panel/services')->with('success', 'Service has been deleted successfully');
+        return redirect('/panel/services')->with('success', 'Usługa została usunięta prawidłowo.');
     }
 }

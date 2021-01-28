@@ -23,7 +23,7 @@ class PostController extends Controller
         if ($request->user()->is_admin() || $request->user()->is_privileged_user()) {
             return view('posts.create');
         } else {
-            return redirect('/')->with('error', 'You have not sufficient permissions for writing post');
+            return redirect('/')->with('error', 'Nieprawidłowa operacja. Nie posiadasz wymaganych uprawnień.');
         }
     }
 
@@ -37,14 +37,14 @@ class PostController extends Controller
 
         $duplicate = Post::where('slug', $post->slug)->first();
         if ($duplicate) {
-            return redirect('blog/createPost')->with('error', 'Title already exists.');
+            return redirect('blog/createPost')->with('error', 'Taki tytuł już istnieje.');
         }
 
         $post->author_id = $request->user()->id;
         $post->save();
 
 
-        return redirect('/blog')->with('success', 'Post has been added successfully.');
+        return redirect('/blog')->with('success', 'Post został dodany.');
     }
 
 
@@ -52,7 +52,7 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
         if (!$post) {
-            return redirect('/')->withErrors('requested page not found');
+            return redirect('/')->withErrors('Strony nie znaleziono.');
         }
         $comments = $post->comments;
         return view('posts.show', ['post' => $post, 'comments' => $comments]);
@@ -63,7 +63,7 @@ class PostController extends Controller
         $post = Post::where('slug', $slug)->first();
         if ($post && ($request->user()->id == $post->author_id || $request->user()->is_admin()))
             return view('posts.edit')->with('post', $post);
-        return redirect('/')->with('error', 'you have not sufficient permissions');
+        return redirect('/')->with('error', 'Nieprawidłowa operacja. Nie posiadasz wymaganych uprawnień.');
     }
 
 
@@ -78,7 +78,7 @@ class PostController extends Controller
             $duplicate = Post::where('slug', $slug)->first();
             if ($duplicate) {
                 if ($duplicate->id != $post_id) {
-                    return redirect('blog/editPost')->with('error', 'Title already exists.');
+                    return redirect('blog/editPost')->with('error', 'Tytuł już istnieje.');
                 } else {
                     $post->slug = $slug;
                 }
@@ -88,7 +88,7 @@ class PostController extends Controller
             $post->body = $request->input('body');
             $post->save();
 
-            return redirect('/blog/post' . '/' . $post->slug)->with('success', 'Post has been updated successfully.');
+            return redirect('/blog/post' . '/' . $post->slug)->with('success', 'Post został edytowany prawidłowo.');
         }
     }
 
@@ -97,9 +97,9 @@ class PostController extends Controller
         $post = Post::find($id);
         if ($post && ($post->author_id == $request->user()->id || $request->user()->is_admin())) {
             $post->delete();
-            return redirect('blog/')->with('success', 'Post has been deleted successfully');
+            return redirect('blog/')->with('success', 'Post został usunięty.');
         } else {
-            return redirect('blog/')->with('error', 'Invalid operation. You have not sufficient permissions.');
+            return redirect('blog/')->with('error', 'Nieprawidłowa operacja. Nie posiadasz wymaganych uprawnień.');
         }
     }
 }

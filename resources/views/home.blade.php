@@ -19,9 +19,10 @@
             </div>
 
             <a class="btn btn-outline-success" href="{{ url('/blog')}}">Blog</a>
+            @if(Auth::user()->is_admin())
            <a class="btn btn-outline-secondary" href="{{ url('/panel/users')}}">Zarządzaj użytkownikami</a>
             <a class="btn btn-outline-secondary"href="{{ url('/panel/services')}}">Zarządzaj usługami </a>
-
+@endif
         </div>
     </div>
 </div>

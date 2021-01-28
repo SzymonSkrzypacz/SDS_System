@@ -32,13 +32,13 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('/panel/users')->with('success', 'User role has been updated successfully');
+        return redirect('/panel/users')->with('success', 'Rola użytkownika została zmieniona.');
     }
 
     public function deleteUser($id)
     {
         $user = User::find($id);
         $user->delete();
-        return redirect('/panel/users')->with('success', 'User has been deleted successfully');
+        return redirect('/panel/users')->with('success', 'Użytkownik został usunięty prawidłowo.');
     }
 }
