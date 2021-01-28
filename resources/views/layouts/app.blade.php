@@ -31,12 +31,11 @@
                     <img src="{{ URL::to('/assets/logonav.jpg') }}" width="210" height="70"
                          alt="logo SDS System">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-
-
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -50,20 +49,44 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Zaloguj') }}</a>
+                                <a class="nav-link btn btn-outline-success font-weight-bold"
+                                   href="{{ route('login') }}">{{ __
+                                ('Zaloguj') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Zarejestruj') }}</a>
+                                    <a class="nav-link btn-success font-weight-bold text-white" href="{{ route('register')
+                                    }}">{{ __
+                                    ('Zarejestruj') }}</a>
                                 </li>
                             @endif
                         @else
 
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="{{ url('/')}}">
+                                        {{ __('Strona główna') }}
+                                    </a>
+
+
+                                    <a class="dropdown-item" href="{{ url('/blog')}}">
+                                        {{ __('Posty') }}
+                                    </a>
+                                    @if(Auth::user()->is_admin())
+                                    <a class="dropdown-item" href="{{ url('/panel/users')}}">
+                                        {{ __('Lista użytkowników') }}
+                                    </a>
+
+                                    <a class="dropdown-item" href="{{ url('/panel/services')}}">
+                                        {{ __('Lista usług') }}
+                                    </a>
+                                    @endif
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

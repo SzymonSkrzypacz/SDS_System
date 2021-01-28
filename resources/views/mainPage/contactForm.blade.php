@@ -18,8 +18,7 @@
 
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label my-2">Adres e-mail</label>
-                    <input type="email" class="form-control my-2" id="exampleFormControlInput1" placeholder="email@example
-               .com">
+                    <input type="email" class="form-control my-2" id="exampleFormControlInput1" placeholder="email@example.com">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label my-2">Treść wiadomości</label>
